@@ -73,7 +73,7 @@ function draw() {
     ctx.strokeStyle = 'red'
     ctx.strokeRect(snake[i].x, snake[i].y, box, box)
   }
-  
+
   ctx.drawImage(foodImg, food.x, food.y)
 
   // old head position
@@ -98,16 +98,16 @@ function draw() {
     snake.pop()
   }
 
+  let newHead = {
+    x: snakeX,
+    y: snakeY
+  }
   // gameover
 
   if(snakeX < box || snakeX > 17 * box || snakeY < 3 * box || snakeY > 17 * box || collision(newHead, snake)) {
     clearInterval(game)
   }
   // new head
-  let newHead = {
-    x: snakeX,
-    y: snakeY
-  }
 
   snake.unshift(newHead)
 
